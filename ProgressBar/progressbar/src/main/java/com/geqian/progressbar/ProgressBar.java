@@ -216,4 +216,52 @@ public class ProgressBar extends View {
         invalidate();
     }
 
+    /**
+     * 设置开始填充色
+     * @param startFillColor
+     */
+    public void setStartFillColor(int startFillColor) {
+        this.startFillColor = startFillColor;
+    }
+
+    /**
+     * 设置填充中间色
+     * @param middleFillColor
+     */
+    public void setMiddleFillColor(int middleFillColor) {
+        this.middleFillColor = middleFillColor;
+    }
+
+    /**
+     * 设置填充结束色
+     * @param endFillColor
+     */
+    public void setEndFillColor(int endFillColor) {
+        this.endFillColor = endFillColor;
+    }
+
+    /**
+     * 设置指示点颜色
+     * @param arrowPointColor
+     */
+    public void setArrowPointColor(int arrowPointColor) {
+        this.arrowPointColor = arrowPointColor;
+    }
+
+    /**
+     * 设置指示点半径
+     * @param arrowPointRadius
+     */
+    public void setArrowPointRadius(int arrowPointRadius) {
+        this.arrowPointRadius = arrowPointRadius;
+    }
+
+    /**
+     * 设置底色
+     * @param backgroundColor
+     */
+    @Override
+    public void setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
 }
