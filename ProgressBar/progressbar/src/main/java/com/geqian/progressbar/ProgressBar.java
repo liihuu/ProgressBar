@@ -155,59 +155,45 @@ public class ProgressBar extends View {
             canvas.drawRect(height / 2, 0, width - height / 2, height, paint);
 
             //绘制填充背景
-            int colors[] = new int[3];
-            float positions[] = new float[3];
-
-            // 第1个点
-            colors[0] = startFillColor;
-            positions[0] = 0;
-
-            // 第2个点
-            colors[1] = middleFillColor;
-            positions[1] = 0.5f;
-
-            // 第3个点
-            colors[2] = endFillColor;
-            positions[2] = 1;
-
-
-            LinearGradient shader = new LinearGradient(
-                    0, 0,
-                    progressWidth, 0,
-                    colors,
-                    positions,
-                    Shader.TileMode.MIRROR);
-            paint.setShader(shader);
+            paint.setShader(getShader(progressWidth));
             canvas.drawRect(height / 2, 0, progressWidth, height, paint);
         } else {
             //绘制填充背景
-            int colors[] = new int[3];
-            float positions[] = new float[3];
-
-            // 第1个点
-            colors[0] = startFillColor;
-            positions[0] = 0;
-
-            // 第2个点
-            colors[1] = middleFillColor;
-            positions[1] = 0.5f;
-
-            // 第3个点
-            colors[2] = endFillColor;
-            positions[2] = 1;
-
-
-            LinearGradient shader = new LinearGradient(
-                    0, 0,
-                    width, 0,
-                    colors,
-                    positions,
-                    Shader.TileMode.MIRROR);
-            paint.setShader(shader);
-
+            paint.setShader(getShader(width));
             canvas.drawRect(height / 2, 0, width - height / 2, height, paint);
         }
 
+    }
+
+    /**
+     * 获取Shader
+     * @return
+     */
+    private Shader getShader(float width){
+        int colors[] = new int[3];
+        float positions[] = new float[3];
+
+        // 第1个点
+        colors[0] = startFillColor;
+        positions[0] = 0;
+
+        // 第2个点
+        colors[1] = middleFillColor;
+        positions[1] = 0.5f;
+
+        // 第3个点
+        colors[2] = endFillColor;
+        positions[2] = 1;
+
+
+        LinearGradient shader = new LinearGradient(
+                0, 0,
+                width, 0,
+                colors,
+                positions,
+                Shader.TileMode.MIRROR);
+
+        return shader;
     }
 
 
