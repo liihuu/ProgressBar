@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="progressBar">
+        <attr name="progress" format="integer" />
+        <attr name="backgroundColor" format="reference|color" />
+        <attr name="startFillColor" format="reference|color" />
+        <attr name="middleFillColor" format="reference|color" />
+        <attr name="endFillColor" format="reference|color" />
+        <attr name="arrowPointColor" format="reference|color" />
+        <attr name="arrowPointRadius" format="dimension|reference" />
+    </declare-styleable>
+
+</resources>
