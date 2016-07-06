@@ -99,6 +99,10 @@ public class ProgressBar extends View {
         canvas.drawCircle(height/2, height/2, height / 2, paint);
 
         if (progressWidth == 0) {
+            //绘制中间圆角
+            paint.setColor(endFillColor);
+            canvas.drawCircle(height/2 , height/2, height / 2, paint);
+
             //绘制中心圆点
             paint.setColor(arrowPointColor);
             canvas.drawCircle(height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius, paint);
