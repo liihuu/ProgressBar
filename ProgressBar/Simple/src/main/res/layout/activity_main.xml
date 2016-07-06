@@ -15,7 +15,7 @@
         app:startFillColor="#505050"
         app:middleFillColor="#B03060"
         app:endFillColor="#e03060"
-        app:arrowPointRadius="3dp"/>
+        app:arrowPointRadius="6dp"/>
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"

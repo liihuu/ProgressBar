@@ -105,7 +105,7 @@ public class ProgressBar extends View {
 
             //绘制中心圆点
             paint.setColor(arrowPointColor);
-            canvas.drawCircle(height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius, paint);
+            canvas.drawCircle(height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius / 2, paint);
 
             //绘制右边圆角
             paint.setColor(backgroundColor);
@@ -121,7 +121,7 @@ public class ProgressBar extends View {
 
             //绘制中心圆点
             paint.setColor(arrowPointColor);
-            canvas.drawCircle(progressWidth, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius, paint);
+            canvas.drawCircle(progressWidth, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius / 2, paint);
         } else {
             //绘制中间圆角
             paint.setColor(endFillColor);
@@ -129,7 +129,7 @@ public class ProgressBar extends View {
 
             //绘制中心圆点
             paint.setColor(arrowPointColor);
-            canvas.drawCircle(width - height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius, paint);
+            canvas.drawCircle(width - height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius / 2, paint);
         }
 
 
