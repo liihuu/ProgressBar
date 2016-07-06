@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent">
+    <com.geqian.progressbar.ProgressBar
+        android:id="@+id/progress"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:backgroundColor="#d8d8d8"
+        app:startFillColor="#f00"
+        app:middleFillColor="#ff0"
+        app:endFillColor="#0f0"
+        app:arrowPointRadius="3dp"/>
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_height="30dp" />
+</LinearLayout>
