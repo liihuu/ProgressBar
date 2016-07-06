@@ -15,7 +15,7 @@ xml
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_height="match_parent">
         <com.geqian.progressbar.ProgressBar
-            android:id="@+id/progress"
+            android:id="@+id/progressBar"
             android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="10dp"
