@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
@@ -93,46 +94,14 @@ public class ProgressBar extends View {
         float progressWidth = (float) (progress / 100.0 * width);
         paint.reset();
         paint.setAntiAlias(true);
-        paint.setColor(startFillColor);
+        paint.setColor(arrowPointColor);
 
-        //绘制左边圆角
-        canvas.drawCircle(height/2, height/2, height / 2, paint);
-
-        if (progressWidth == 0) {
-            //绘制中间圆角
-            paint.setColor(endFillColor);
-            canvas.drawCircle(height/2 , height/2, height / 2, paint);
-
-            //绘制中心圆点
-            paint.setColor(arrowPointColor);
+        //绘制中心圆点
+        if (progressWidth < arrowPointRadius) {
             canvas.drawCircle(height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius / 2, paint);
-
-            //绘制右边圆角
-            paint.setColor(backgroundColor);
-            canvas.drawCircle(width - height/2 , height/2, height / 2, paint);
-        } else if (width - progressWidth > 0){
-            //绘制右边圆角
-            paint.setColor(backgroundColor);
-            canvas.drawCircle(width - height/2 , height/2, height / 2, paint);
-
-            //绘制中间圆角
-            paint.setColor(endFillColor);
-            canvas.drawCircle(progressWidth , height/2, height / 2, paint);
-
-            //绘制中心圆点
-            paint.setColor(arrowPointColor);
-            canvas.drawCircle(progressWidth, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius / 2, paint);
         } else {
-            //绘制中间圆角
-            paint.setColor(endFillColor);
-            canvas.drawCircle(width - height/2 , height/2, height / 2, paint);
-
-            //绘制中心圆点
-            paint.setColor(arrowPointColor);
-            canvas.drawCircle(width - height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius / 2, paint);
+            canvas.drawCircle(progressWidth - height/2, height/2, arrowPointRadius == 0 ? height / 2 - 6 : arrowPointRadius / 2, paint);
         }
-
-
     }
 
     /**
@@ -145,22 +114,27 @@ public class ProgressBar extends View {
         float height = getHeight();
         float progressWidth = (float) (progress / 100.0 * width);
 
-        if (progressWidth == 0){
+        if (progressWidth < arrowPointRadius){
             //绘制无填充背景
             paint.setColor(backgroundColor);
-            canvas.drawRect(height / 2, 0, width - height / 2, height, paint);
-        } else if (width - progressWidth > 0){
+            RectF rectF = new RectF(0, 0, width, height);
+            canvas.drawRoundRect(rectF, height / 2, height / 2, paint);
+        } else if (progressWidth > arrowPointRadius){
             //绘制无填充背景
             paint.setColor(backgroundColor);
-            canvas.drawRect(height / 2, 0, width - height / 2, height, paint);
+            RectF backgroundRectF = new RectF(0, 0, width, height);
+            canvas.drawRoundRect(backgroundRectF, height / 2, height / 2, paint);
 
             //绘制填充背景
             paint.setShader(getShader(progressWidth));
-            canvas.drawRect(height / 2, 0, progressWidth, height, paint);
+            RectF fillRectF = new RectF(0, 0, progressWidth, height);
+            canvas.drawRoundRect(fillRectF, height / 2, height / 2, paint);
+
         } else {
             //绘制填充背景
-            paint.setShader(getShader(width));
-            canvas.drawRect(height / 2, 0, width - height / 2, height, paint);
+            paint.setShader(getShader(progressWidth));
+            RectF fillRectF = new RectF(0, 0, progressWidth, height);
+            canvas.drawRoundRect(fillRectF, height / 2, height / 2, paint);
         }
 
     }
