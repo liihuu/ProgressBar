@@ -24,11 +24,25 @@ xml
             app:middleFillColor="#B03060"
             app:endFillColor="#e03060"
             app:arrowPointRadius="6dp"/>
+
+        <com.geqian.progressbar.FloatTextProgressBar
+            android:id="@+id/floatTextProgressBar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_height="30dp"
+            app:backgroundColor="#d8d8d8"
+            app:startFillColor="#ff0000"
+            app:triangleColor="#ff0000"
+            app:rectColor="#ff0000"
+            app:textColor="#fff"/>
     </LinearLayout>
 activity
 -----
     ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
     progressBar.setProgress(50);
+    
+    FloatTextProgressBar floatTextProgressBar = (FloatTextProgressBar) findViewById(R.id.floatTextProgressBar);
+    floatTextProgressBar.setProgress(30);
 custom attribute
 -----
     <declare-styleable name="progressBar">
@@ -39,4 +53,7 @@ custom attribute
         <attr name="endFillColor" format="reference|color" />
         <attr name="arrowPointColor" format="reference|color" />
         <attr name="arrowPointRadius" format="dimension|reference" />
+        <attr name="triangleColor" format="reference|color" />
+        <attr name="rectColor" format="reference|color" />
+        <attr name="textColor" format="reference|color" />
     </declare-styleable>
