@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:layout_height="match_parent">
     <com.geqian.progressbar.ProgressBar
-        android:id="@+id/progress"
+        android:id="@+id/progressBar"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="10dp"
@@ -16,6 +16,18 @@
         app:middleFillColor="#B03060"
         app:endFillColor="#e03060"
         app:arrowPointRadius="6dp"/>
+
+    <com.geqian.progressbar.FloatTextProgressBar
+        android:id="@+id/floatTextProgressBar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="30dp"
+        app:backgroundColor="#d8d8d8"
+        app:startFillColor="#ff0000"
+        app:triangleColor="#ff0000"
+        app:rectColor="#ff0000"
+        app:textColor="#fff"/>
+
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"

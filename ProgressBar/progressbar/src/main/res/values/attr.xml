@@ -9,6 +9,9 @@
         <attr name="endFillColor" format="reference|color" />
         <attr name="arrowPointColor" format="reference|color" />
         <attr name="arrowPointRadius" format="dimension|reference" />
+        <attr name="triangleColor" format="reference|color" />
+        <attr name="rectColor" format="reference|color" />
+        <attr name="textColor" format="reference|color" />
     </declare-styleable>
 
 </resources>
