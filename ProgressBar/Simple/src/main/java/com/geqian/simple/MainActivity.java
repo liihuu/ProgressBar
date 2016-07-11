@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.SeekBar;
 
+import com.geqian.progressbar.CircleProgressBar;
 import com.geqian.progressbar.FloatTextProgressBar;
 import com.geqian.progressbar.ProgressBar;
 
@@ -19,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
         final FloatTextProgressBar floatTextProgressBar = (FloatTextProgressBar) findViewById(R.id.floatTextProgressBar);
 
+        final CircleProgressBar circleProgressBar = (CircleProgressBar) findViewById(R.id.circleProgressBar);
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressBar.setProgress(progress);
                 floatTextProgressBar.setProgress(progress);
+                circleProgressBar.setProgress(progress);
             }
 
             @Override
