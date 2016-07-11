@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 /**
  * Created by woniu on 16/7/8.
  */
-public class CircleProgressBar extends AbsProgressBar {
+public class CircleProgressBar extends FloatTextProgressBar {
 
     /**文字大小*/
     private float textSize;
@@ -17,27 +17,26 @@ public class CircleProgressBar extends AbsProgressBar {
     /**进度条宽度*/
     private float progressWidth;
 
-    /**进度条填充色*/
-    private int fillColor;
-
     public CircleProgressBar(Context context) {
         super(context);
     }
 
     public CircleProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(attrs);
     }
 
     public CircleProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
-    @Override
-    protected void initAttr(TypedArray a) {
-        super.initAttr(a);
-        textSize = a.getDimension(R.styleable.progressBar_textSize, dip2px(15));
-        fillColor = a.getColor(R.styleable.progressBar_startFillColor, 0xffff0000);
-        progressWidth = a.getDimension(R.styleable.progressBar_progressWidth, dip2px(3));
+    private void init(AttributeSet attrs){
+        final TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.circleProgressBar);
+        textSize = a.getDimension(R.styleable.circleProgressBar_textSize, dip2px(15));
+        progressWidth = a.getDimension(R.styleable.circleProgressBar_progressWidth, dip2px(3));
+        a.recycle();
     }
 
     @Override
@@ -70,14 +69,6 @@ public class CircleProgressBar extends AbsProgressBar {
      */
     public void setProgressWidth(float progressWidth) {
         this.progressWidth = progressWidth;
-    }
-
-    /**
-     * 设置进度条填充色
-     * @param fillColor
-     */
-    public void setFillColor(int fillColor) {
-        this.fillColor = fillColor;
     }
 
     /**

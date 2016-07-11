@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="progressBar">
+    <declare-styleable name="absProgressBar">
         <attr name="progress" format="integer" />
         <attr name="backgroundColor" format="reference|color" />
+        <attr name="textColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="progressBar">
         <attr name="startFillColor" format="reference|color" />
         <attr name="middleFillColor" format="reference|color" />
         <attr name="endFillColor" format="reference|color" />
         <attr name="arrowPointColor" format="reference|color" />
         <attr name="arrowPointRadius" format="dimension|reference" />
-        <attr name="triangleColor" format="reference|color" />
-        <attr name="rectColor" format="reference|color" />
-        <attr name="textColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="circleProgressBar">
         <attr name="textSize" format="dimension|reference"/>
         <attr name="progressWidth" format="dimension|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="floatTextProgressBar">
+        <attr name="triangleColor" format="reference|color" />
+        <attr name="rectColor" format="reference|color" />
+        <attr name="fillColor" format="reference|color" />
     </declare-styleable>
 
 </resources>

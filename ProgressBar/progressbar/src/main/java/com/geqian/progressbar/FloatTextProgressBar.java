@@ -40,7 +40,7 @@ public class FloatTextProgressBar extends ProgressBar {
     private int rectColor;
 
     /**进度条填充颜色*/
-    private int fillColor;
+    protected int fillColor;
 
     public FloatTextProgressBar(Context context) {
         super(context);
@@ -48,11 +48,12 @@ public class FloatTextProgressBar extends ProgressBar {
 
     public FloatTextProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-
+        init(attrs);
     }
 
     public FloatTextProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
     @Override
@@ -67,12 +68,13 @@ public class FloatTextProgressBar extends ProgressBar {
         textSize = height / 4;
     }
 
-    @Override
-    protected void initAttr(TypedArray a) {
-        super.initAttr(a);
-        fillColor = a.getColor(R.styleable.progressBar_startFillColor, 0xffff0000);
-        triangleColor = a.getColor(R.styleable.progressBar_triangleColor, 0xffff0000);
-        rectColor = a.getColor(R.styleable.progressBar_rectColor, 0xffff0000);
+    private void init(AttributeSet attrs){
+        final TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.floatTextProgressBar);
+        fillColor = a.getColor(R.styleable.floatTextProgressBar_fillColor, 0xffff0000);
+        triangleColor = a.getColor(R.styleable.floatTextProgressBar_triangleColor, 0xffff0000);
+        rectColor = a.getColor(R.styleable.floatTextProgressBar_rectColor, 0xffff0000);
+        a.recycle();
     }
 
     @Override

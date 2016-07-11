@@ -3,9 +3,7 @@ package com.geqian.progressbar;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
-import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -24,15 +22,6 @@ public class AbsProgressBar extends View {
 
     /**整个控件高度*/
     protected float height;
-
-    /**进度条填充起始色*/
-    protected int startFillColor;
-
-    /**进度条填充中间色*/
-    protected int middleFillColor;
-
-    /**进度条填充结束颜色*/
-    protected int endFillColor;
 
     /**进度条未填充颜色*/
     protected int backgroundColor;
@@ -69,24 +58,14 @@ public class AbsProgressBar extends View {
      * @param attrs
      */
     private void init(Context context, AttributeSet attrs){
-        TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.progressBar);
-        initAttr(a);
+        final TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.absProgressBar);
+        progress = a.getInteger(R.styleable.absProgressBar_progress, 0);
+        backgroundColor = a.getColor(R.styleable.absProgressBar_backgroundColor, 0xfff4f4f4);
+        textColor = a.getColor(R.styleable.absProgressBar_textColor, 0xffffffff);
         a.recycle();
     }
 
-    /**
-     * 初始化属性
-     * @param a
-     */
-    protected void initAttr(TypedArray a){
-        progress = a.getInteger(R.styleable.progressBar_progress, 0);
-        startFillColor = a.getColor(R.styleable.progressBar_startFillColor, 0xffff0000);
-        middleFillColor = a.getColor(R.styleable.progressBar_middleFillColor, 0xffff0000);
-        endFillColor = a.getColor(R.styleable.progressBar_endFillColor, 0xffff0000);
-        backgroundColor = a.getColor(R.styleable.progressBar_backgroundColor, 0xfff4f4f4);
-        textColor = a.getColor(R.styleable.progressBar_textColor, 0xffffffff);
-    }
 
     /**
      * 初始化画笔
@@ -128,36 +107,7 @@ public class AbsProgressBar extends View {
 
     }
 
-    /**
-     * 获取Shader
-     * @return
-     */
-    protected Shader getShader(float width){
-        int colors[] = new int[3];
-        float positions[] = new float[3];
 
-        // 第1个点
-        colors[0] = startFillColor;
-        positions[0] = 0;
-
-        // 第2个点
-        colors[1] = middleFillColor;
-        positions[1] = 0.5f;
-
-        // 第3个点
-        colors[2] = endFillColor;
-        positions[2] = 1;
-
-
-        LinearGradient shader = new LinearGradient(
-                0, 0,
-                width, 0,
-                colors,
-                positions,
-                Shader.TileMode.MIRROR);
-
-        return shader;
-    }
 
     /**
      * dp转px
@@ -194,27 +144,4 @@ public class AbsProgressBar extends View {
         this.textColor = textColor;
     }
 
-    /**
-     * 设置开始填充色
-     * @param startFillColor
-     */
-    public void setStartFillColor(int startFillColor) {
-        this.startFillColor = startFillColor;
-    }
-
-    /**
-     * 设置填充中间色
-     * @param middleFillColor
-     */
-    public void setMiddleFillColor(int middleFillColor) {
-        this.middleFillColor = middleFillColor;
-    }
-
-    /**
-     * 设置填充结束色
-     * @param endFillColor
-     */
-    public void setEndFillColor(int endFillColor) {
-        this.endFillColor = endFillColor;
-    }
 }
