@@ -120,10 +120,11 @@ public class AbsProgressBar extends View {
      * @param dpValue
      * @return
      */
-    public int dip2px(float dpValue) {
+    public float dip2px(float dpValue) {
         final float scale = this.context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
+        return dpValue * scale + 0.5f;
     }
+
 
     /**
      * 设置进度
