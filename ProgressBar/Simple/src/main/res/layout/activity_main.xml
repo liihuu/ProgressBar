@@ -25,7 +25,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="30dp"
         app:backgroundColor="#d8d8d8"
-        app:startFillColor="#ff0000"
+        app:fillColor="#ff0000"
         app:triangleColor="#ff0000"
         app:rectColor="#ff0000"
         app:textColor="#fff"/>
@@ -36,7 +36,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
         app:backgroundColor="#d8d8d8"
-        app:startFillColor="#ff0000"
+        app:fillColor="#ff0000"
         app:progressWidth="5dp"
         app:textColor="#505050"/>
 
