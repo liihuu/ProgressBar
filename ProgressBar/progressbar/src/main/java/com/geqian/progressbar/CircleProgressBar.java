@@ -65,7 +65,7 @@ public class CircleProgressBar extends FloatTextProgressBar {
         float textWidth = paint.measureText(progress + "%");
         paint.setTextSize(textSize);
         paint.setColor(textColor);
-        canvas.drawText(progress + "%", width / 2 - textWidth * 2, height / 2 + textSize / 3, paint);
+        canvas.drawText(progress + "%", width / 2 - textWidth / 2 * 3, height / 2 + textSize / 3, paint);
     }
 
     /**
