@@ -31,10 +31,19 @@ xml
             android:layout_marginTop="50dp"
             android:layout_height="30dp"
             app:backgroundColor="#d8d8d8"
-            app:startFillColor="#ff0000"
+            app:fillColor="#ff0000"
             app:triangleColor="#ff0000"
             app:rectColor="#ff0000"
             app:textColor="#fff"/>
+        <com.geqian.progressbar.CircleProgressBar
+            android:id="@+id/circleProgressBar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            app:backgroundColor="#d8d8d8"
+            app:fillColor="#ff0000"
+            app:progressWidth="5dp"
+            app:textColor="#505050"/>    
     </LinearLayout>
 activity
 -----
@@ -42,18 +51,9 @@ activity
     progressBar.setProgress(50);
     
     FloatTextProgressBar floatTextProgressBar = (FloatTextProgressBar) findViewById(R.id.floatTextProgressBar);
-    floatTextProgressBar.setProgress(30);
-custom attribute
------
-    <declare-styleable name="progressBar">
-        <attr name="progress" format="integer" />
-        <attr name="backgroundColor" format="reference|color" />
-        <attr name="startFillColor" format="reference|color" />
-        <attr name="middleFillColor" format="reference|color" />
-        <attr name="endFillColor" format="reference|color" />
-        <attr name="arrowPointColor" format="reference|color" />
-        <attr name="arrowPointRadius" format="dimension|reference" />
-        <attr name="triangleColor" format="reference|color" />
-        <attr name="rectColor" format="reference|color" />
-        <attr name="textColor" format="reference|color" />
-    </declare-styleable>
+    floatTextProgressBar.setProgress(50);
+    
+    CircleProgressBar circleProgressBar = (CircleProgressBar) findViewById(R.id.circleProgressBar);
+    circleProgressBar.setProgress(50);
+    
+    
