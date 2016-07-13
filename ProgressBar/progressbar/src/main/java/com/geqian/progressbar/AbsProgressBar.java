@@ -63,6 +63,8 @@ public class AbsProgressBar extends View {
         progress = a.getInteger(R.styleable.absProgressBar_progress, 0);
         backgroundColor = a.getColor(R.styleable.absProgressBar_backgroundColor, 0xfff4f4f4);
         textColor = a.getColor(R.styleable.absProgressBar_textColor, 0xffffffff);
+
+        setProgress(progress);
         a.recycle();
     }
 
@@ -71,7 +73,11 @@ public class AbsProgressBar extends View {
      * 初始化画笔
      */
     protected void initPaint(){
-        paint = new Paint();
+        if (paint == null){
+            paint = new Paint();
+        } else {
+            paint.reset();
+        }
         paint.setAntiAlias(true);
     }
 

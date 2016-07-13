@@ -24,9 +24,6 @@ public class FloatTextProgressBar extends ProgressBar {
     /**三角形宽度*/
     private float triangleWidth;
 
-    /**三角形高度*/
-    private float triangleHeight;
-
     /**浮动框左右边距*/
     private float margin;
 
@@ -63,7 +60,6 @@ public class FloatTextProgressBar extends ProgressBar {
         floatRectWidth = height /  5 * 4;
         floatRectHeight = height / 9 * 4;
         triangleWidth = height / 7 * 2;
-        triangleHeight = height / 5 + height / 7 * 3;
         margin = dip2px(3);
         textSize = height / 4;
     }

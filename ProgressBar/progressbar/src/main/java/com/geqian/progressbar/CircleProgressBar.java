@@ -17,6 +17,9 @@ public class CircleProgressBar extends FloatTextProgressBar {
     /**进度条宽度*/
     private float progressWidth;
 
+    /**内圈颜色*/
+    private int smallCircleColor;
+
     public CircleProgressBar(Context context) {
         super(context);
     }
@@ -36,6 +39,7 @@ public class CircleProgressBar extends FloatTextProgressBar {
                 R.styleable.circleProgressBar);
         textSize = a.getDimension(R.styleable.circleProgressBar_textSize, dip2px(15));
         progressWidth = a.getDimension(R.styleable.circleProgressBar_progressWidth, dip2px(3));
+        smallCircleColor = a.getColor(R.styleable.circleProgressBar_smallCircleColor, 0xffffffff);
         a.recycle();
     }
 
@@ -51,16 +55,17 @@ public class CircleProgressBar extends FloatTextProgressBar {
         canvas.drawArc(rectF, -90, (float)(progress / 100.0 * 360), true, paint);
 
         //绘制内环
-        paint.setColor(0xffffffff);
+        paint.setColor(smallCircleColor);
         canvas.drawCircle(width / 2, height / 2, width / 2 - progressWidth, paint);
     }
 
     @Override
     public void drawText(Canvas canvas) {
+        initPaint();
         float textWidth = paint.measureText(progress + "%");
         paint.setTextSize(textSize);
         paint.setColor(textColor);
-        canvas.drawText(progress + "%", width / 2 - textWidth / 2, height / 2 + textSize / 3, paint);
+        canvas.drawText(progress + "%", width / 2 - textWidth * 2, height / 2 + textSize / 3, paint);
     }
 
     /**
@@ -77,5 +82,13 @@ public class CircleProgressBar extends FloatTextProgressBar {
      */
     public void setTextSize(float textSize) {
         this.textSize = textSize;
+    }
+
+    /**
+     * 设置内圈颜色
+     * @param smallCircleColor
+     */
+    public void setSmallCircleColor(int smallCircleColor) {
+        this.smallCircleColor = smallCircleColor;
     }
 }

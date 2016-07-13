@@ -18,6 +18,7 @@
     <declare-styleable name="circleProgressBar">
         <attr name="textSize" format="dimension|reference"/>
         <attr name="progressWidth" format="dimension|reference"/>
+        <attr name="smallCircleColor" format="reference|color"/>
     </declare-styleable>
 
     <declare-styleable name="floatTextProgressBar">
