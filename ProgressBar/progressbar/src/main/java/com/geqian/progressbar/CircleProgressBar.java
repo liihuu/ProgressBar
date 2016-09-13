@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 
 /**
  * Created by woniu on 16/7/8.
@@ -51,8 +52,44 @@ public class CircleProgressBar extends FloatTextProgressBar {
 
         //绘制进度
         paint.setColor(fillColor);
+        float angle = (float)(progress / 100.0 * 360);
         RectF rectF = new RectF(0, 0, width, height);
-        canvas.drawArc(rectF, -90, (float)(progress / 100.0 * 360), true, paint);
+        canvas.drawArc(rectF, -90, angle, true, paint);
+
+        //绘制进度条圆角
+        //绘制起始圆角
+//        canvas.drawCircle(width / 2, progressWidth / 2, progressWidth / 2, paint);
+//        //绘制终点圆角
+//        float r = width - progressWidth / 2;
+//        float x = (float)Math.abs((Math.cos((450 - angle) * Math.PI / 180)) * r);
+//        float y = (float)Math.abs((Math.sin((450 - angle) * Math.PI / 180)) * r);
+//        float cx = 0, cy = 0;
+//        if (angle > 0 && angle < 90){
+//            cx = width / 2 + x;
+//            cy = height / 2 - y;
+//        } else if (angle == 90) {
+//            cx = width - progressWidth / 2;
+//            cy = height / 2;
+//        } else if (angle > 90 && angle < 180) {
+//            cx = width / 2 + x;
+//            cy = height / 2 + y;
+//        } else if (angle == 180) {
+//            cx = width / 2;
+//            cy = height - progressWidth / 2;
+//        } else if (angle > 180 && angle < 270) {
+//            cx = width / 2 - x;
+//            cy = height / 2 + y;
+//        } else if (angle == 270) {
+//            cx = progressWidth / 2;
+//            cy = height / 2;
+//        } else if (angle > 270 && angle < 360) {
+//            cx = width / 2 - x;
+//            cy = height / 2 - y;
+//        } else {
+//            cx = width / 2;
+//            cy = progressWidth / 2;
+//        }
+//        canvas.drawCircle(cx, cy, progressWidth / 2, paint);
 
         //绘制内环
         paint.setColor(smallCircleColor);
