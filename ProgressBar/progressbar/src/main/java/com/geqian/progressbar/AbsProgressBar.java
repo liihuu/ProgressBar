@@ -93,8 +93,10 @@ public class AbsProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         getDimension();
+        final int saveCount = canvas.save();
         drawProgress(canvas);
         drawText(canvas);
+        canvas.restoreToCount(saveCount);
     }
 
     /**
