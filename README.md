@@ -4,6 +4,10 @@ Screenshots
 
 Usage
 ===================================
+gradle
+-----
+compile 'com.geqian.progressbar:progressbar:1.0.0'
+
 xml
 -----
     <?xml version="1.0" encoding="utf-8"?>
