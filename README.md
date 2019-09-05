@@ -1,7 +1,7 @@
 # ProgressBar
 
 ## Screenshots
-![aa](./Screenshots/screenshot.png)
+![aa](./screenshots/screenshot.png)
 
 ## Usage
 ### gradle
