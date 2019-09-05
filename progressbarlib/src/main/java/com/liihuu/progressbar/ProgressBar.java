@@ -103,8 +103,8 @@ public class ProgressBar extends AbsProgressBar {
      * @return
      */
     protected Shader getShader(float width){
-        int colors[] = new int[3];
-        float positions[] = new float[3];
+        int[] colors = new int[3];
+        float[] positions = new float[3];
 
         // 第1个点
         colors[0] = startFillColor;
@@ -119,14 +119,12 @@ public class ProgressBar extends AbsProgressBar {
         positions[2] = 1;
 
 
-        LinearGradient shader = new LinearGradient(
+        return new LinearGradient(
                 0, 0,
                 width, 0,
                 colors,
                 positions,
                 Shader.TileMode.MIRROR);
-
-        return shader;
     }
 
     /**

@@ -1,0 +1,14 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    artifactId = 'progressbar'
+    uploadName = 'progressbar'
+    publishVersion = '1.1.0'
+    userOrg = 'liiiiiihu'
+    repoName = 'maven'
+    groupId = 'com.liihuu.widget'
+    desc = 'Beautiful progress bar for android'
+    dryRun = false
+    website = 'https://github.com/liihuu/ProgressBar'
+    licences = ['MIT']
+}
