@@ -1,5 +1,6 @@
 # ProgressBar
 
+[![Download](https://api.bintray.com/packages/liiiiiihu/maven/progressbar/images/download.svg?version=1.1.0) ](https://bintray.com/liiiiiihu/maven/progressbar/1.1.0/link)
 [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://github.com/liihuu/ProgressBar)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
@@ -8,7 +9,7 @@ Beautiful progress bar for android.
 ## Usage
 ### gradle
 ```groovy
-implementation 'com.geqian.progressbar:progressbar:1.0.0'
+implementation 'com.liihuu.widget:progressbar:1.1.0'
 ```
 
 ### xml
