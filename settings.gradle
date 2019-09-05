@@ -1,1 +1,1 @@
-include ':Sample', ':progressbarlib'
+include ':sample', ':progressbarlib'
