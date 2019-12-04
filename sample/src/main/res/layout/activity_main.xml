@@ -17,6 +17,7 @@
         app:startFillColor="#505050"
         app:middleFillColor="#B03060"
         app:endFillColor="#e03060"
+        app:maxProgress="200"
         app:arrowPointRadius="6dp"/>
 
     <com.liihuu.progressbar.FloatTextProgressBar
@@ -28,6 +29,7 @@
         app:fillColor="#ff0000"
         app:triangleColor="#ff0000"
         app:rectColor="#ff0000"
+        app:maxProgress="200"
         app:textColor="#fff"/>
 
     <com.liihuu.progressbar.CircleProgressBar
@@ -38,6 +40,7 @@
         app:backgroundColor="#d8d8d8"
         app:fillColor="#ff0000"
         app:progressWidth="5dp"
+        app:maxProgress="200"
         app:textColor="#505050"/>
 
     <SeekBar

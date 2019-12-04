@@ -94,7 +94,6 @@ public class FloatTextProgressBar extends ProgressBar {
      * @param canvas
      */
     private void drawFloatRect(Canvas canvas){
-
         if (progressWidth < floatRectWidth + margin){
             //绘制浮动框
             paint.setColor(rectColor);
@@ -144,7 +143,7 @@ public class FloatTextProgressBar extends ProgressBar {
     public void drawText(Canvas canvas) {
         paint.setColor(textColor);
         paint.setTextSize(textSize);
-        String progressText = (progress / this.maxProgress * 100) + "%";
+        String progressText = (progress * 100f / this.maxProgress) + "%";
         float textWidth = paint.measureText(progressText);
         if (progressWidth < floatRectWidth + margin) {
             canvas.drawText(progressText, margin + floatRectWidth / 2 - textWidth / 2, floatRectHeight / 2 + textSize / 4, paint);

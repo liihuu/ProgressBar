@@ -50,7 +50,7 @@ public class CircleProgressBar extends FloatTextProgressBar {
 
         //绘制进度
         paint.setColor(fillColor);
-        float angle = (float)(progress / this.maxProgress * 360);
+        float angle = (progress / 1f /this.maxProgress * 360);
         RectF rectF = new RectF(0, 0, width, height);
         canvas.drawArc(rectF, -90, angle, true, paint);
         //绘制内环
@@ -61,7 +61,7 @@ public class CircleProgressBar extends FloatTextProgressBar {
     @Override
     public void drawText(Canvas canvas) {
         initPaint();
-        float progressRate = (progress / this.maxProgress) * 100;
+        float progressRate = progress * 100f /this.maxProgress;
         String progressText = progressRate + "%";
         paint.setTextSize(textSize);
         paint.setColor(textColor);

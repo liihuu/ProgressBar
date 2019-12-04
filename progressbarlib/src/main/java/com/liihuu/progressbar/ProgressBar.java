@@ -7,7 +7,6 @@ import android.graphics.LinearGradient;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.util.Log;
 
 /**
  * Created by woniu on 16/7/5.
@@ -44,8 +43,7 @@ public class ProgressBar extends AbsProgressBar {
     }
 
     private void init(AttributeSet attrs){
-        final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.progressBar);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.progressBar);
         startFillColor = a.getColor(R.styleable.progressBar_startFillColor, 0xffff0000);
         middleFillColor = a.getColor(R.styleable.progressBar_middleFillColor, 0xffff0000);
         endFillColor = a.getColor(R.styleable.progressBar_endFillColor, 0xffff0000);
@@ -57,7 +55,7 @@ public class ProgressBar extends AbsProgressBar {
     @Override
     protected void getDimension() {
         super.getDimension();
-        progressWidth = progress / this.maxProgress * width;
+        progressWidth = (progress / 1f / maxProgress) * width;
     }
 
     @Override
