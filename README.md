@@ -20,10 +20,12 @@ implementation 'com.liihuu.widget:progressbar:1.1.0'
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:gravity="center_horizontal"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:layout_height="match_parent">
-    <com.geqian.progressbar.ProgressBar
+
+    <com.liihuu.progressbar.ProgressBar
         android:id="@+id/progressBar"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
@@ -32,20 +34,22 @@ implementation 'com.liihuu.widget:progressbar:1.1.0'
         app:startFillColor="#505050"
         app:middleFillColor="#B03060"
         app:endFillColor="#e03060"
+        app:maxProgress="200"
         app:arrowPointRadius="6dp"/>
 
-    <com.geqian.progressbar.FloatTextProgressBar
-       android:id="@+id/floatTextProgressBar"
-       android:layout_width="match_parent"
-       android:layout_marginTop="50dp"
-       android:layout_height="30dp"
-       app:backgroundColor="#d8d8d8"
-       app:fillColor="#ff0000"
-       app:triangleColor="#ff0000"
-       app:rectColor="#ff0000"
-       app:textColor="#fff"/>
+    <com.liihuu.progressbar.FloatTextProgressBar
+        android:id="@+id/floatTextProgressBar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="30dp"
+        app:backgroundColor="#d8d8d8"
+        app:fillColor="#ff0000"
+        app:triangleColor="#ff0000"
+        app:rectColor="#ff0000"
+        app:maxProgress="200"
+        app:textColor="#fff"/>
 
-    <com.geqian.progressbar.CircleProgressBar
+    <com.liihuu.progressbar.CircleProgressBar
         android:id="@+id/circleProgressBar"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -53,7 +57,14 @@ implementation 'com.liihuu.widget:progressbar:1.1.0'
         app:backgroundColor="#d8d8d8"
         app:fillColor="#ff0000"
         app:progressWidth="5dp"
+        app:maxProgress="200"
         app:textColor="#505050"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_height="30dp" />
 </LinearLayout>
 ```
 ### activity
