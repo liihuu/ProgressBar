@@ -5,6 +5,7 @@
         <attr name="progress" format="integer" />
         <attr name="backgroundColor" format="reference|color" />
         <attr name="textColor" format="reference|color" />
+        <attr name="maxProgress" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="progressBar">

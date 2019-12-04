@@ -65,8 +65,7 @@ public class FloatTextProgressBar extends ProgressBar {
     }
 
     private void init(AttributeSet attrs){
-        final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.floatTextProgressBar);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.floatTextProgressBar);
         fillColor = a.getColor(R.styleable.floatTextProgressBar_fillColor, 0xffff0000);
         triangleColor = a.getColor(R.styleable.floatTextProgressBar_triangleColor, 0xffff0000);
         rectColor = a.getColor(R.styleable.floatTextProgressBar_rectColor, 0xffff0000);
@@ -145,13 +144,14 @@ public class FloatTextProgressBar extends ProgressBar {
     public void drawText(Canvas canvas) {
         paint.setColor(textColor);
         paint.setTextSize(textSize);
-        float textWidth = paint.measureText(progress + "%");
+        String progressText = (progress / this.maxProgress * 100) + "%";
+        float textWidth = paint.measureText(progressText);
         if (progressWidth < floatRectWidth + margin) {
-            canvas.drawText(progress + "%", margin + floatRectWidth / 2 - textWidth / 2, floatRectHeight / 2 + textSize / 4, paint);
+            canvas.drawText(progressText, margin + floatRectWidth / 2 - textWidth / 2, floatRectHeight / 2 + textSize / 4, paint);
         } else if (width - progressWidth < floatRectWidth + margin){
-            canvas.drawText(progress + "%", width - margin - floatRectWidth / 2 - textWidth / 2, floatRectHeight / 2 + textSize / 4, paint);
+            canvas.drawText(progressText, width - margin - floatRectWidth / 2 - textWidth / 2, floatRectHeight / 2 + textSize / 4, paint);
         } else {
-            canvas.drawText(progress + "%", progressWidth - textWidth / 2, floatRectHeight / 2 + textSize / 4, paint);
+            canvas.drawText(progressText, progressWidth - textWidth / 2, floatRectHeight / 2 + textSize / 4, paint);
         }
     }
 

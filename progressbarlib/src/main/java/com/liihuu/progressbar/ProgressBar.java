@@ -7,6 +7,7 @@ import android.graphics.LinearGradient;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.util.Log;
 
 /**
  * Created by woniu on 16/7/5.
@@ -56,7 +57,7 @@ public class ProgressBar extends AbsProgressBar {
     @Override
     protected void getDimension() {
         super.getDimension();
-        progressWidth = (float) (progress / 100.0 * width);
+        progressWidth = progress / this.maxProgress * width;
     }
 
     @Override

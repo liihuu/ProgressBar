@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -32,6 +33,9 @@ public class AbsProgressBar extends View {
     /**进度条*/
     protected int progress;
 
+    /**最大进度*/
+    protected int maxProgress;
+
     public AbsProgressBar(Context context) {
         super(context);
         this.context = context;
@@ -58,12 +62,11 @@ public class AbsProgressBar extends View {
      * @param attrs
      */
     private void init(Context context, AttributeSet attrs){
-        final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.absProgressBar);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.absProgressBar);
         progress = a.getInteger(R.styleable.absProgressBar_progress, 0);
         backgroundColor = a.getColor(R.styleable.absProgressBar_backgroundColor, 0xfff4f4f4);
         textColor = a.getColor(R.styleable.absProgressBar_textColor, 0xffffffff);
-
+        maxProgress = a.getInteger(R.styleable.absProgressBar_maxProgress, 100);
         setProgress(progress);
         a.recycle();
     }
@@ -85,13 +88,12 @@ public class AbsProgressBar extends View {
      * 获取各元素尺寸
      */
     protected void getDimension(){
-        width = getWidth();
-        height = getHeight();
+        width = getMeasuredWidth();
+        height = getMeasuredHeight();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
         getDimension();
         final int saveCount = canvas.save();
         drawProgress(canvas);
@@ -115,8 +117,6 @@ public class AbsProgressBar extends View {
 
     }
 
-
-
     /**
      * dp转px
      * @param dpValue
@@ -133,7 +133,7 @@ public class AbsProgressBar extends View {
      * @param progress
      */
     public void setProgress(int progress) {
-        this.progress = progress;
+        this.progress = Math.min(progress, maxProgress);
         invalidate();
     }
 

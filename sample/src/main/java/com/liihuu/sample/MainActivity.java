@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         final FloatTextProgressBar floatTextProgressBar = findViewById(R.id.floatTextProgressBar);
 
         final CircleProgressBar circleProgressBar = findViewById(R.id.circleProgressBar);
-
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
